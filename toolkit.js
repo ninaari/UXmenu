@@ -16,7 +16,7 @@ $('.toggle').on('click', function(){
   let inCart = $(":checkbox:checked").length;
   
     $(document).ready(function() {
-      $('.itemsNumber').text(inCart);
+      $('.totalNum').text(inCart);
     });
   
   $('.check').on('click', function(){
@@ -42,13 +42,21 @@ $('.toggle').on('click', function(){
     // }
     
     let inCart = $(":checkbox:checked").length;
-    $('.itemsNumber').text(inCart);
+    $('.totalNum').text(inCart);
+    let inDisc = $(".discChecks:checkbox:checked").length;
+    $('.discNum').text(inDisc);
+    let inDefi = $(".defChecks:checkbox:checked").length;
+    $('.defNum').text(inDefi);
+    let inIdea = $(".ideaChecks:checkbox:checked").length;
+    $('.ideaNum').text(inIdea);
+    let inTest = $(".testChecks:checkbox:checked").length;
+    $('.testNum').text(inTest);
     
   });
   
-  //TODO if checked by default (required) add to items  - without x
+  //TODO if checked by default (required) add to items - without x
   
-  //remove pill
+  //remove pill - .delegate is used for items that do not exist in DOM on render
   $("body").delegate(".remove", "click", function(){
     let remove = $(this).attr('id');
   
@@ -57,45 +65,29 @@ $('.toggle').on('click', function(){
     $(this).parent().remove();
     
     let inCart = $(":checkbox:checked").length;
-    $('.itemsNumber').text(inCart);
+    $('.totalNum').text(inCart);
     
   });
   
   //NAVIGATION
-  // $('#continue').on('click', function(){
-    
-  //   $('#review').slideDown(800);
-  //   $('#container').slideUp(800);
-  // });
-  
-  // $('#cartButton').on('click', function(){
-  //   $('#review').slideDown(800);
-  //   $('#container').slideUp(800);
-  // });
-  
-  // $('#back').on('click', function(){
-  //   $('#review').slideUp(800);
-  //   $('#container').slideDown(800);
-  // });
-  
   $('#start').on('click', function(){
     $('#USA').slideUp(800);
-    $('.active').slideDown(800);
+    $('.active').slideDown(800); //which adds "display block"
   });
   
   $('#home').on('click', function(){
-    $('.active').css('display','none');
+    $('.active').css('display','none'); //hides content but preserves spot
     $('#USA').slideDown(800);
   });
   
   $('#cartButton').on('click', function(){
-    // $('.active').css('display','none');
-    $('#review').prev('section').css('border','5px solid red');
+    $('.active').removeClass('active');
+    $('.rev').addClass('active');
+    navConditional();
   });
-  
-  $('#back').on('click', function(){    $('.active').prev('section').addClass('active');
-    $('.active:last').removeClass('active');
-    //hide show button
+
+  function navConditional(){
+      //hide show button
     if($("section:first").hasClass('active')){
         $('#back').hide();
       }else{
@@ -108,30 +100,36 @@ $('.toggle').on('click', function(){
         $('#continue').show();
         $('#submit').hide();
       }
+  }
+  
+  $('#back').on('click', function(){    
+    $('.active').prev('section').addClass('active');
+    $('.active:last').removeClass('active');
+
+    navConditional();
   });
   
   $('#continue').on('click', function(){
-     $('.active').next('section').addClass('active');  $('.active:last').prev('section').removeClass('active');
-  //hide show button
-    if($("section:first").hasClass('active')){
-        $('#back').hide();
-      }else{
-        $('#back').show();
-      }
-  //same button logic
-      if($("section:last").hasClass('active')){
-        $('#continue').hide();
-      }else{
-        $('#continue').show();
-      }
+     $('.active').next('section').addClass('active');  
+     $('.active:last').prev('section').removeClass('active');
+
+     navConditional();
   });
   
   $( document ).ready(function() {
       if($("section:first").hasClass('active')){
         $('#back').hide();
       }
+
+      //Nothing selected - Null state
+//TODO make this work
+      let nothingS = $(".review").text();
+      if(nothingS){
+        //do nothing
+      } else {
+        $(".review").text('nothing selected');
+      }
+
   });
   
-  $('#submit').on('click', function(){ 
-  
-  });
+//.discChecks .defChecks .ideaChecks .testChecks  
