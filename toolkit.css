@@ -52,7 +52,7 @@ body{
   #USA{
     width: 100%;
     height: 100vh;
-    background-image: url("https://raw.githubusercontent.com/GavinRF/UXmenu/main/usa%20flag.jpg");
+    background-image: url("img/usa\ flag.jpg");
     background-size: cover;
     z-index: 2;
     position: absolute;
