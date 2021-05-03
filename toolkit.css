@@ -1,0 +1,441 @@
+body{
+    color: #EDE9E7;
+    background-color: #172C47;
+    font-family: sans-serif;
+    margin: 0px;
+  }
+  
+  section{
+    display: none;
+  }
+  
+  .active{
+    display: block;
+    animation: appear .85s ease 1;
+  }
+  
+  @keyframes appear {
+    0% {opacity: 0; transform: translateY(-25px)}
+    100% {opacity: 1;}
+  }
+  
+  #intro{
+    width: 45%;
+    margin: 18% 5%;
+    text-shadow: 2px 2px 4px rgba(12, 39, 105, .45);
+  }
+  
+  #intro h3{
+    margin-top: -8px;
+  }
+  
+  #start{
+    margin-right: -85%;
+    font-weight: bold;
+    margin-top: -45px;
+    box-shadow: 2px 3px 3px rgba(12, 39, 105, .2);
+    padding: 13px !important;
+    animation: start .4s ease-in-out 1;
+    animation-delay: .5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+  
+  @keyframes start{
+    0% {transform: translateY(-8px) scale(.89); opacity: 0;}
+    50% {opacity: 1}
+    60%{transform: translateY(-2px) scale(1.13);}
+    90% {transform: translateY(2px) scale(.9);}
+    100%{opacity: 1;}
+  }
+  
+  #USA{
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://raw.githubusercontent.com/GavinRF/UXmenu/main/usa%20flag.jpg");
+    background-size: cover;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    opacity: 25;
+  }
+  
+  #overlay{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: -2;
+    mix-blend-mode: darken;
+    background: linear-gradient(70deg, rgba(30,87,153,0.95) 0%,rgba(40,132,210,0.63) 44%,rgba(41,137,216,0.34) 54%,rgba(32,124,202,0.63) 64%,rgba(125,185,232,0.81) 100%); 
+  }
+  
+  #diagonal{
+    width: 100%;
+    height: 100vh;
+    background-color: #E32050;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    clip-path: polygon(52% 0, 100% 0, 100% 100%, 70% 100%);
+    animation: guillotine .8s ease 1;
+  }
+  
+  @keyframes guillotine{
+    0% {clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); opacity: .4;}
+    100%{polygon(52% 0, 100% 0, 100% 100%, 70% 100%);}
+  }
+  
+  #logo{
+    width: 122px;
+  }
+  
+  #home:hover{
+    background: #C8EFFF;
+    border-radius: 25px;
+    color: #172C47;
+    cursor: pointer;
+  }
+  
+  #cartButton{
+    cursor: pointer;
+  }
+  
+  nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 15px 25px 15px;
+    transition: all .4s;
+  }
+  
+  #projectName, #mailCon{
+    margin: 15% 15%;
+    max-width: 800px;
+  }
+  
+  #pName, #email{
+    background: none;
+    width: 90%;
+    font-size: 23px;
+    color: #EDE9E7;
+    border: 0px solid #EDE9E7;
+    border-bottom: 2px solid #EDE9E7;
+    padding: 12px;
+    margin: 5px 0 0 0;
+    transition: border .4s;
+  }
+  
+  #pName:focus, #email:focus{
+    border-bottom: 2px solid #9DDDF7;
+  }
+  
+  #container, #bottomNav{
+    margin: 0 15% 45px 15%;
+  }
+  
+  #nav{
+    max-width: 800px;
+    margin: 34px auto 125px auto;
+  }
+  
+  .itemsNumber{
+    font-size: 16px;
+    display: inline-block;
+    width: 20px;
+    height: 18px;
+    background-color: #EA2152;
+    border-radius: 15px;
+    margin: 0 0 0 -4px;
+    text-align: center;
+    padding: 3px 0 0 0;
+  }
+  
+  .inst{
+    max-width: 800px;
+    padding: 15px 0 25px 0;
+    margin: 0 auto;
+  }
+  
+  h1{
+    margin-bottom: 14px;
+  }
+  
+  .menu{
+    max-width: 800px;
+    margin: 0 auto;
+    height: auto;
+    outline: 1px solid gray;
+    outline-offset: -7px;
+    outline-color: #9DDDF766;
+    padding: 3px;
+  }
+  
+  .paddingXtra{
+    padding: 7px 45px 5px 45px;
+    margin: -9px 15px 16px 15px;
+  }
+  
+  .menu h2{
+    text-align: center;
+    margin: 4px 22px 7px 22px;
+    padding: 20px 0 13px 0;
+    position: sticky;
+    top: 0px;
+    background: #203D69;
+  }
+  
+  h3{
+    margin-bottom: 5px;
+    line-height: 23px;
+    font-weight: 500;
+  /*   position: sticky;
+    top: 35px; */
+  }
+  
+  h4{
+    margin: -5px 5px 6px 0;
+    line-height: 22px;
+  }
+  
+  li h4 span{
+    margin: 7px 6px 0 -5px;
+    vertical-align: sub;
+  }
+  
+  h6{
+    margin-top: 4px;
+    margin-bottom: -9px;
+    text-align: center;
+    font-weight: lighter;
+  }
+  
+  .content{
+    display: none;
+  }
+  
+  p{
+    font-weight: lighter;
+    line-height: 22px;
+    margin-top: 2px;
+  }
+  
+  
+  .p1{
+    padding: 0 68px;
+    margin-top: -10px;
+  }
+  
+  .blue{
+     background: #203D69;
+  }
+  
+  .toggle{
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+    border-radius: 40px;
+    margin: 10px auto 5px auto;
+    padding: 2px;
+    text-align: center;
+  }
+  
+  ul{
+    list-style-type: none;
+    margin-bottom: 25px;
+  }
+  
+  .additional{
+    display: flex;
+  /*   flex-flow: row wrap; */
+    flex-wrap: wrap;
+    gap: 7px;
+    align-content: space-between;
+    margin-bottom: 25px;
+  }
+  
+  .card{
+  /*   border: 1px solid #9DDDF766; */
+    padding: 20px 16px 3px 12px;
+    flex: 1;
+    flex-basis: 200px;
+    border-radius: 3px;
+    background-color: #172C47;
+  }
+  
+  hr{
+    height: 1px;
+    margin-top: 1px;
+    border: none;
+    background-color: #9DDDF766;
+  }
+  
+  /* BOTTOM NAVIGATION ///////////*/
+  #bottomNav{
+    position: sticky;
+    bottom: 0px;
+    background: #172C47;
+  }
+  
+  #continue, #start, #submit{
+    font-size: 16px;
+    padding: 10px 15px 10px 15px;
+    background-color: #9DDDF7;
+    border-radius: 50px;
+    border: none;
+    float: right;
+  /*   color: #FFF; */
+    weight: 600 !iportant;
+    cursor: pointer;
+  }
+  
+  #submit{
+    margin-top: 25px;
+  }
+  
+  #continue:hover, #start:hover{
+    background-color: #C8EFFF;
+  }
+  
+  #back{
+    border: 1px solid #EDE9E7;
+    border-radius: 12px;
+    width: 45px;
+  }
+  
+  /* #back::after{
+    content: "back";
+    width: 45px;
+    height: 34px;
+  } */
+  
+  #back:hover{
+    background: #C8EFFF;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    color: #172C47;
+    cursor: pointer;
+  }
+  
+  /* custom checkbox ///////////////////////*/
+  .box {
+          display: block;
+          position: relative;
+          margin-top: 10px;
+          margin-right: -22px;
+          cursor: pointer;
+          font-size: 20px;
+          float: right;
+        }
+  
+  input[type=number] {
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    border: 1px solid #9DDDF766;
+    width: 43px;
+  }
+    /* Hide the default style of the checkbox */
+        input[type=checkbox] {
+          visibility: hidden;
+        }
+   /*//// Create a custom checkbox ////*/
+        .mark {
+          position: absolute;
+          top: 2px;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          background-color: #9DDDF745;
+          border: 1px solid #EDE9E7;
+          border-radius: 1px;
+        }
+  
+        .box:hover input + .mark {
+          background-color: #1c87c9;
+        }
+  
+        .box input:checked + .mark {
+          background-color: #288C05;
+        }
+  
+        .mark:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+  
+        .box input:checked + .mark:after {
+          display: block;
+        }
+  
+        .box .mark:after {
+          left: 6px;
+          bottom: 4px;
+          width: 5px;
+          height: 12px;
+          border: solid #eee;
+          border-width: 0 3px 3px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+  
+  /* REVIEW  (*) (*) */
+  #review{
+    margin: 45px 15%;
+  }
+  
+  .review{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    align-content: space-between;
+    min-height: 20px;
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+    padding-bottom:18px;
+  }
+  
+  .reviewTitle{
+    background: #203D69;
+    text-align: center;
+    flex-basis: 100%;
+    max-width: 800px;
+    padding: 20px 0 18px 0;
+    outline: 1px solid gray;
+    outline-offset: -7px;
+    outline-color: #9DDDF766;
+    margin: 0 auto 7px auto;
+  }
+  
+  .pill{
+    background: #203D69;
+    padding: 12px 53px 9px 25px;
+    border-radius: 25px;
+    position: relative;
+    flex: 1;
+    flex-basis: 200px;
+  /*   white-space: nowrap; */
+  }
+  
+  .remove{
+    background-color: #EA2152;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    position: absolute;
+    right: 7px;
+    top: 6px;
+  }
+  
+  .remove:hover{
+    background-color: #C3123D;
+  }
+  
+  @media only screen and (max-width: 980px){
+    #container, #bottomNav{
+    margin: 0 5%;
+  }
+  }
