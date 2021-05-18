@@ -22,6 +22,7 @@ body{
   #intro{
     width: 45%;
     margin: 18% 5%;
+    max-width: 540px;
     text-shadow: 2px 2px 4px rgba(12, 39, 105, .45);
   }
   
@@ -30,15 +31,16 @@ body{
   }
   
   #start{
-    margin-right: -85%;
     font-weight: bold;
-    margin-top: -45px;
+    top: 45%;
+    right: 15%;
     box-shadow: 2px 3px 3px rgba(12, 39, 105, .2);
     padding: 13px !important;
     animation: start .4s ease-in-out 1;
     animation-delay: .5s;
     animation-fill-mode: forwards;
     opacity: 0;
+    position: absolute;
   }
   
   @keyframes start{
@@ -52,9 +54,9 @@ body{
   #USA{
     width: 100%;
     height: 100vh;
-    background-image: url("https://raw.githubusercontent.com/GavinRF/UXmenu/main/usa%20flag.jpg");
+    background-image: url("img/usa-flag.jpg");
     background-size: cover;
-    z-index: 2;
+    z-index: 5;
     position: absolute;
     top: 0;
     opacity: 25;
@@ -83,7 +85,7 @@ body{
   
   @keyframes guillotine{
     0% {clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); opacity: .4;}
-    100%{polygon(52% 0, 100% 0, 100% 100%, 70% 100%);}
+    100%{clip-path: polygon(52% 0, 100% 0, 100% 100%, 70% 100%);}
   }
   
   #logo{
@@ -109,13 +111,14 @@ body{
   }
   
   #projectName, #mailCon{
-    margin: 15% 15%;
+    margin: 15% auto;
     max-width: 800px;
+    padding: 0 15px;
   }
   
   #pName, #email{
     background: none;
-    width: 90%;
+    width: calc(100% - 25px);
     font-size: 23px;
     color: #EDE9E7;
     border: 0px solid #EDE9E7;
@@ -148,6 +151,12 @@ body{
     margin: 0 0 0 -4px;
     text-align: center;
     padding: 3px 0 0 0;
+  }
+
+  .discNum, .defNum, .ideaNum, .testNum{
+      float: right;
+      margin-right: 6px;
+      background-color: #172C47;
   }
   
   .inst{
@@ -182,6 +191,7 @@ body{
     position: sticky;
     top: 0px;
     background: #203D69;
+    z-index: 1;
   }
   
   h3{
@@ -274,7 +284,9 @@ body{
   #bottomNav{
     position: sticky;
     bottom: 0px;
-    background: #172C47;
+    background: rgba(23, 44, 71, 0.85);
+    z-index: 2;
+    /* box-shadow: 0 -6px 6px #172C47; */
   }
   
   #continue, #start, #submit{
@@ -285,7 +297,7 @@ body{
     border: none;
     float: right;
   /*   color: #FFF; */
-    weight: 600 !iportant;
+    font-weight: 600;
     cursor: pointer;
   }
   
