@@ -406,7 +406,7 @@ body{
     min-height: 20px;
     max-width: 800px;
     margin: 0 auto 15px auto;
-    padding-bottom:18px;
+    padding-bottom:18px; 
   }
   
   .reviewTitle{
@@ -419,6 +419,12 @@ body{
     outline-offset: -7px;
     outline-color: #9DDDF766;
     margin: 0 auto 7px auto;
+  }
+
+  .nothing{
+    text-align: center;
+    flex: 2;
+    flex-basis: 200px;
   }
   
   .pill{

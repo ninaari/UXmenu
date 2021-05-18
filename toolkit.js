@@ -1,18 +1,18 @@
-//expand the next div
+//expand the next div + -
 $('.toggle').on('click', function(){
     $(this).next().slideToggle('fast');
     
-   let toggleTxt = $(this).text();
+    let toggleTxt = $(this).text();
     
     if(toggleTxt === 'add_circle'){
       $(this).text('remove_circle');
     }else{
       $(this).text('add_circle');
     }
-    
-  });
+});
   
-  //checkbox controls - first check for defaulted "required"
+  //checkbox controls - 
+  //first check for defaulted "required"
   let inCart = $(":checkbox:checked").length;
   
     $(document).ready(function() {
@@ -24,15 +24,23 @@ $('.toggle').on('click', function(){
     let time = parseInt($(this).data('time'));
     let totalTime = parseInt($('#time').val());
     let noSpace = method.replace(/ /g,'');
-    let pill = '<div class="pill '+noSpace+'">'+method+'<span class="remove material-icons md-48" id="'+method+'">close</span></div>';
+    let pill = '<div class="pill '+noSpace+'" data-time="'+time+'">'+method+'<span class="remove material-icons md-48" id="'+method+'">close</span></div>';
     let cata = $(this).data("cata");
   
     if($(this).prop('checked')){
-      $('.'+cata).append(pill);
+      $('.'+cata).prepend(pill);
       $('#time').val(totalTime+time);
     }else{
       $('div').remove('.'+noSpace);
       $('#time').val(totalTime-time);
+    }
+
+  //remove or show "nothing selected"
+  let hasSomething = $('.'+cata).children().length;
+    if(hasSomething > 1 ){
+      $('.'+cata + "> .nothing").text('');
+    } else{
+      $('.'+cata + "> .nothing").text('Nothing Selected');
     }
     
     //trying to do something with a diabled chekbox
@@ -54,18 +62,33 @@ $('.toggle').on('click', function(){
     
   });
   
-  //TODO if checked by default (required) add to items - without x
+  //TODO if checked by default (required) add to items - without (x) button ///////
   
-  //remove pill - .delegate is used for items that do not exist in DOM on render
-  $("body").delegate(".remove", "click", function(){
+  //Remove Pill --- 
+  //.delegate is used for items that do not exist in DOM on render
+  $(".review").delegate(".remove", "click", function(){
     let remove = $(this).attr('id');
-  
+  //uncheck the appropriate box
     $('input[value="' + remove + '"]').prop('checked', false);
-    //TODO subtract time from total
-    $(this).parent().remove();
     
+    //show text "nothing selected"
+    let hasPill = $(this).parents('.review').children().length;
+      if(hasPill < 3){
+        $(this).parents('.review').find('.nothing').text('Nothing Selected');
+      }
+
+    //remove it
+    $(this).parent().remove();
+    //reduce total in cart
     let inCart = $(":checkbox:checked").length;
     $('.totalNum').text(inCart);
+
+    //Subtract time from total
+    let totalTime = parseInt($('#time').val());
+    let time = parseInt($(this).parent().data('time'));
+    $('#time').val(totalTime-time);
+
+    //
     
   });
   
@@ -87,15 +110,16 @@ $('.toggle').on('click', function(){
   });
 
   function navConditional(){
-      //hide show button
+    // hide/show back button
     if($("section:first").hasClass('active')){
         $('#back').hide();
       }else{
         $('#back').show();
       }
-  //same button logic
+    //same button logic but for continue
       if($("section:last").hasClass('active')){
         $('#continue').hide();
+        $('#submit').show();
       }else{
         $('#continue').show();
         $('#submit').hide();
@@ -121,15 +145,17 @@ $('.toggle').on('click', function(){
         $('#back').hide();
       }
 
-      //Nothing selected - Null state
-//TODO make this work
-      let nothingS = $(".review").text();
-      if(nothingS){
-        //do nothing
+    //Nothing selected - Null state
+    //TODO make this work
+    let hasSomething = $(".review").children().hasClass('pill');
+
+      if(hasSomething){
+        $(".review > .nothing").text('');
+        $(".review .nothing").css('border','3px solid red');
       } else {
-        $(".review").text('nothing selected');
+        $(".review > .nothing").text('Nothing Selected');
       }
 
   });
   
-//.discChecks .defChecks .ideaChecks .testChecks  
+//.discoveries .defines .ideas .tests
