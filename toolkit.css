@@ -168,6 +168,10 @@ body{
   h1{
     margin-bottom: 14px;
   }
+
+  .discoveries {
+    margin-bottom: 15px;
+  }
   
   .menu{
     max-width: 800px;
@@ -181,7 +185,7 @@ body{
   
   .paddingXtra{
     padding: 7px 45px 5px 45px;
-    margin: -9px 15px 16px 15px;
+    margin: -9px 15px 4px 15px;
   }
   
   .menu h2{
@@ -237,6 +241,8 @@ body{
   
   .blue{
      background: #203D69;
+     margin-bottom: 9px;
+     padding-bottom: 9px;
   }
   
   .toggle{
@@ -244,10 +250,12 @@ body{
     cursor: pointer;
     width: 100%;
     height: 30px;
-    border-radius: 40px;
+    /* border-radius: 40px; */
     margin: 10px auto 5px auto;
-    padding: 2px;
+    padding-top: 2px;
     text-align: center;
+    font-size: 26px;
+    /* background:rgba(12, 39, 105, .4); */
   }
   
   ul{
@@ -423,8 +431,8 @@ body{
 
   .nothing{
     text-align: center;
-    flex: 2;
-    flex-basis: 200px;
+    flex: 1;
+    flex-basis: 600px;
   }
   
   .pill{
