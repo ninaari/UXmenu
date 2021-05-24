@@ -1,16 +1,22 @@
-//expand the next div + -
-$('.toggle').on('click', function(){
-    $(this).next().slideToggle('fast');
-    
-    let toggleTxt = $(this).text();
-    
-    if(toggleTxt === 'add_circle'){
-      $(this).text('remove_circle');
-    }else{
-      $(this).text('add_circle');
-    }
-});
-  
+  //expand the next div + -
+  $('.toggle').on('click', function(){
+      $(this).next().slideToggle('fast');
+      
+      let toggleTxt = $(this).text();
+      
+      if(toggleTxt === 'add_circle'){
+        $(this).text('remove_circle');
+      }else{
+        $(this).text('add_circle');
+      }
+  });
+
+  //add project to the DL area
+  $("#pName").blur(function(){
+    let pName = $('#pName').val();
+    $('#pTitle').text(pName);
+  }); 
+
   //checkbox controls - 
   //first check for defaulted "required"
   let inCart = $(":checkbox:checked").length;
@@ -57,6 +63,8 @@ $('.toggle').on('click', function(){
     // description.css('border','2px dotted red')
     //alert(description.not('.material-icons').text());
     let dText = description.contents().not("span").text();
+
+
     $('#dlContent').append(dText + '<br>');
     
   });
@@ -186,5 +194,9 @@ function downloadInnerHtml(filename, elId, mimeType) {
 var fileName =  'Liberty-UX-Toolkit.txt'; 
 
 $('#downloadLink').click(function(){
+  //add project to the DL area
+  let pName = $('#pName').val();
+  $('#dlContent').prepend("<h2>"+pName+"</h2>");
+
   downloadInnerHtml(fileName, 'dlContent','text/html');
 });

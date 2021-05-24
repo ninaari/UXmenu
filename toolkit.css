@@ -98,6 +98,10 @@ body{
     color: #172C47;
     cursor: pointer;
   }
+
+  #pTitle{
+    margin: 0px;
+  }
   
   #cartButton{
     cursor: pointer;
@@ -262,6 +266,12 @@ body{
   ul{
     list-style-type: none;
     margin-bottom: 25px;
+  }
+
+  .addList li{
+    list-style-type: disc;
+    font-weight: 100;
+    padding-bottom: 12px;
   }
   
   .additional{
