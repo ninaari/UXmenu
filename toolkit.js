@@ -151,7 +151,6 @@ $('.toggle').on('click', function(){
 
       if(hasSomething){
         $(".review > .nothing").text('');
-        $(".review .nothing").css('border','3px solid red');
       } else {
         $(".review > .nothing").text('Nothing Selected');
       }

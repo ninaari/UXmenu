@@ -179,12 +179,12 @@ body{
     height: auto;
     outline: 1px solid gray;
     outline-offset: -7px;
-    outline-color: #9DDDF766;
+    outline-color: rgba(157, 221, 247, 0.4);
     padding: 3px;
   }
   
   .paddingXtra{
-    padding: 7px 45px 5px 45px;
+    padding: 11px 45px 7px 45px;
     margin: -9px 15px 4px 15px;
   }
   
@@ -199,7 +199,8 @@ body{
   }
   
   h3{
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    margin-top: 12px;
     line-height: 23px;
     font-weight: 500;
   /*   position: sticky;
@@ -406,17 +407,6 @@ body{
     margin: 45px 15%;
   }
   
-  .review{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    align-content: space-between;
-    min-height: 20px;
-    max-width: 800px;
-    margin: 0 auto 15px auto;
-    padding-bottom:18px; 
-  }
-  
   .reviewTitle{
     background: #203D69;
     text-align: center;
@@ -429,10 +419,24 @@ body{
     margin: 0 auto 7px auto;
   }
 
+  .review{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    align-content: space-between;
+    min-height: 20px;
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+    padding-bottom:18px; 
+  }
+
   .nothing{
     text-align: center;
     flex: 1;
-    flex-basis: 600px;
+    flex-basis: 200px;
+    position: relative;
+    border-radius: 25px;
+    padding: 0 39px 0 39px;
   }
   
   .pill{
