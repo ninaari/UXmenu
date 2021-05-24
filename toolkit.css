@@ -210,6 +210,11 @@ body{
   /*   position: sticky;
     top: 35px; */
   }
+
+  .sticky{
+    position: sticky;
+    top: 35px;
+  }
   
   h4{
     margin: -5px 5px 6px 0;
@@ -472,6 +477,22 @@ body{
   
   .remove:hover{
     background-color: #C3123D;
+  }
+
+  #downloadLink{
+    float: right;
+    width: 35px;
+    height: 35px;
+    border-radius: 40px;
+    padding: 5px 0 0 0;
+    border: 1px solid #C8EFFF;
+    color: #C8EFFF;
+    text-align: center;
+  }
+
+  #downloadLink:hover{
+    background: #C8EFFF;
+    color: #172C47;
   }
   
   @media only screen and (max-width: 980px){
