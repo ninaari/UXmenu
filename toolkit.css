@@ -101,6 +101,7 @@ body{
 
   #pTitle{
     margin: 0px;
+    cursor: pointer;
   }
   
   #cartButton{

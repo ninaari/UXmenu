@@ -130,6 +130,12 @@
     navConditional();
   });
 
+  $('#pTitle').on('click', function(){
+    $('.active').removeClass('active');
+    $('.nameIt').addClass('active');
+    navConditional();
+  });
+
   function navConditional(){
     // hide/show back button
     if($("section:first").hasClass('active')){
