@@ -212,6 +212,13 @@ body{
     top: 35px; */
   }
 
+  /* h3::before{
+    content: '■';
+    position: absolute;
+    margin-left: -20px;
+    margin-top: -2px;
+  } */
+
   .sticky{
     position: sticky;
     top: 35px;
@@ -503,5 +510,33 @@ body{
   @media only screen and (max-width: 980px){
     #container, #bottomNav{
     margin: 0 5%;
+  }
+  }
+
+  @media only screen and (max-width: 480px){
+    #container, #bottomNav{
+    margin: 0 5%;
+  }
+
+  .paddingXtra{
+    padding: 11px 25px 7px 25px;
+    margin: -9px 15px 4px 15px;
+  }
+
+  .box {
+
+    margin-right: -2px;
+    cursor: pointer;
+    font-size: 20px;
+    float: right;
+  }
+
+  .p1{
+    padding: 0 25px;
+    margin-top: -10px;
+  }
+
+  #review{
+    margin: 45px 5%;
   }
   }
