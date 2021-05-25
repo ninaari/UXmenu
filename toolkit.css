@@ -444,6 +444,10 @@ body{
     margin: 0 auto 5px auto;
     padding-bottom:18px; 
   }
+  .t{
+    max-width: 800px;
+    margin: 0 auto 5px auto;
+  }
 
   .nothing{
     text-align: center;
