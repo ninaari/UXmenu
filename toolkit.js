@@ -11,18 +11,46 @@
       }
   });
 
-  //select the checkbox by clicking on the area
-  // $('.paddingXtra').on('click', function(){
-  //   //select checkbox
-  //   boxCheck = $(this).find('input').prop('checked');
-  //   if(boxCheck){
-  //     $(this).find('input').prop('checked', true);
-  //     $(this).css('background','#9DDDF766');
-  //   }else{
-  //     $(this).find('input').prop('checked', false);
-  //     $(this).css('background','#203D69');
-  //   }
-  // });
+  //select the checkbox by clicking on the area!!!
+  $('.paddingXtra').on('click', function(){
+    //toggle doesn't click checkbox
+    $('.toggle').click(function(e) {
+      e.stopPropagation();
+    });
+    //h6 doesn't click checkbox
+    $('h6').click(function(e) {
+      e.stopPropagation();
+    });
+
+    //select checkbox
+    boxCheck = $(this).find('input').prop('checked');
+    if(boxCheck){
+      $(this).find('input').prop('checked', false);
+      $(this).find('input').triggerHandler('click');
+      $(this).css('outline','1px solid rgba(157, 221, 247, 0.4)');
+      $(this).css('outline-offset','-7px');
+    }else{
+      $(this).find('input').prop('checked', true);
+      $(this).find('input').triggerHandler('click');
+      $(this).css('outline','2px solid #C8EFFF');
+      $(this).css('outline-offset','-7px');
+    }
+     //update total in cart and sections
+     itemNum();
+  });
+
+  //stage area clicks to open toggle
+  $('.blue').on('click', function(){
+    $(this).children('.toggle:first').triggerHandler('click');
+
+    $('.menu').click(function(e) {
+      e.stopPropagation();
+    });
+
+    $('.toggle').click(function(e) {
+      e.stopPropagation();
+    });
+  });
 
   //add project to the DL area
   $("#pName").blur(function(){
@@ -79,8 +107,10 @@
   //.delegate is used for items that do not exist in DOM on render
   $(".review").delegate(".remove", "click", function(){
     let remove = $(this).attr('id');
-  //uncheck the appropriate box
+  //uncheck the appropriate box and remove styling from method
     $('input[value="' + remove + '"]').prop('checked', false);
+    let methOut = $('input[value="' + remove + '"]').parentsUntil('.content');
+    methOut.not('.box').css('outline','1px solid rgba(157, 221, 247, 0.4)');
     
     //show text "nothing selected"
     let hasPill = $(this).parents('.review').children().length;
@@ -105,7 +135,6 @@
         //reduce total in cart
         let inCart = $(":checkbox:checked").length;
         $('.totalNum').text(inCart);
-    
         //update section number
         let inDisc = $(".discChecks:checkbox:checked").length;
         $('.discNum').text(inDisc);
@@ -117,7 +146,7 @@
         $('.testNum').text(inTest);
   }
   
-  //NAVIGATION
+  // NAVIGATION /////////
   $('#start').on('click', function(){
     $('#USA').slideUp(800);
     $('.active').slideDown(800); //which adds "display block"
@@ -184,7 +213,6 @@
       }
 
     //Nothing selected - Null state
-    //TODO make this work
     let hasSomething = $(".review").children().hasClass('pill');
 
       if(hasSomething){
