@@ -204,8 +204,8 @@ body{
   
   .menu h2{
     text-align: center;
-    margin: 4px 4px 7px 44px;
-    padding: 20px 0 13px 0;
+    margin: 4px 4px 7px 4px;
+    padding: 20px 0 13px 34px;
     position: sticky;
     top: 0px;
     background: #203D69;
