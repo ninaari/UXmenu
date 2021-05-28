@@ -28,12 +28,14 @@
       $(this).find('input').prop('checked', false);
       $(this).find('input').triggerHandler('click');
       $(this).css('outline','1px solid rgba(157, 221, 247, 0.4)');
-      $(this).css('outline-offset','-7px');
+      // $(this).css('outline-offset','-7px');
+      $(this).css('box-shadow','inset 0px 0px 0px rgba(157, 221, 247, 0.4)');
     }else{
       $(this).find('input').prop('checked', true);
       $(this).find('input').triggerHandler('click');
       $(this).css('outline','2px solid #C8EFFF');
-      $(this).css('outline-offset','-7px');
+      // $(this).css('outline-offset','-7px');
+      $(this).css('box-shadow','inset 0px 0px 13px rgba(157, 221, 247, 0.4)');
     }
      //update total in cart and sections
      itemNum();
@@ -111,6 +113,7 @@
     $('input[value="' + remove + '"]').prop('checked', false);
     let methOut = $('input[value="' + remove + '"]').parentsUntil('.content');
     methOut.not('.box').css('outline','1px solid rgba(157, 221, 247, 0.4)');
+    methOut.not('.box').css('box-shadow','0px 0px 0px rgba(157, 221, 247, 0)');
     
     //show text "nothing selected"
     let hasPill = $(this).parents('.review').children().length;
