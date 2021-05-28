@@ -102,6 +102,7 @@ body{
   #pTitle{
     margin: 0px;
     cursor: pointer;
+    z-index: 45;
   }
   
   #cartButton{
@@ -111,8 +112,12 @@ body{
   nav{
     display: flex;
     justify-content: space-between;
-    margin: 10px 15px 25px 15px;
+    margin: 0 0 25px 0;
+    padding: 10px 15px 0px 15px;
     transition: all .4s;
+    /* position: sticky;
+    top: 0;
+    background:#172C47; */
   }
   
   #projectName, #mailCon{
@@ -191,6 +196,7 @@ body{
   .paddingXtra{
     padding: 11px 45px 7px 45px;
     margin: -9px 15px 4px 15px;
+    cursor: pointer;
   }
   
   .menu h2{
@@ -212,8 +218,9 @@ body{
     top: 35px; */
   }
 
+  /* ▪ ▬ ● ◦*/
   /* h3::before{
-    content: '■';
+    content: '■'; 
     position: absolute;
     margin-left: -20px;
     margin-top: -2px;
@@ -500,11 +507,18 @@ body{
     border: 1px solid #C8EFFF;
     color: #C8EFFF;
     text-align: center;
+    cursor: pointer;
   }
 
   #downloadLink:hover{
     background: #C8EFFF;
     color: #172C47;
+  }
+
+  #downloadLink h6{
+    margin: 12px 0 0 -5px;
+    text-decoration-line: none;
+    color: #C8EFFF;
   }
   
   @media only screen and (max-width: 980px){
@@ -522,7 +536,11 @@ body{
       font-weight: normal;
     }
 
-    #container, #bottomNav{
+    h6{
+      font-weight: normal;
+    }
+
+  #container, #bottomNav{
     margin: 0 5%;
   }
 

@@ -4,12 +4,25 @@
       
       let toggleTxt = $(this).text();
       
-      if(toggleTxt === 'add_circle'){
-        $(this).text('remove_circle');
+      if(toggleTxt === 'expand_more'){
+        $(this).text('expand_less');
       }else{
-        $(this).text('add_circle');
+        $(this).text('expand_more');
       }
   });
+
+  //select the checkbox by clicking on the area
+  // $('.paddingXtra').on('click', function(){
+  //   //select checkbox
+  //   boxCheck = $(this).find('input').prop('checked');
+  //   if(boxCheck){
+  //     $(this).find('input').prop('checked', true);
+  //     $(this).css('background','#9DDDF766');
+  //   }else{
+  //     $(this).find('input').prop('checked', false);
+  //     $(this).css('background','#203D69');
+  //   }
+  // });
 
   //add project to the DL area
   $("#pName").blur(function(){
@@ -57,15 +70,6 @@
     
     //update total in cart and sections
     itemNum();
-
-    //for the download button
-    let description = $(this).parentsUntil('.content');
-    // description.css('border','2px dotted red')
-    //alert(description.not('.material-icons').text());
-    let dText = description.contents().not("span").text();
-
-
-    $('#dlContent').append(dText + '<br>');
     
   });
   
@@ -163,6 +167,13 @@
   $('#continue').on('click', function(){
      $('.active').next('section').addClass('active');  
      $('.active:last').prev('section').removeClass('active');
+    
+     if($('#pTitle').text()){
+      //do nothing
+     }else {
+      let pName = $('#pName').val();
+      $('#pTitle').text(pName);
+     }
 
      navConditional();
   });
@@ -197,12 +208,22 @@ function downloadInnerHtml(filename, elId, mimeType) {
   link.click(); 
 }
 
-var fileName =  'Liberty-UX-Toolkit.txt'; 
+var fileName =  'Liberty-UX-Toolkit.html'; 
 
 $('#downloadLink').click(function(){
-  //add project to the DL area
+  $('#dlContent').text('');
+  //add project name to the DL area
   let pName = $('#pName').val();
   $('#dlContent').prepend("<h2>"+pName+"</h2>");
-
+  //add checked content
+  let description = $("input:checked").parentsUntil('.content');
+  let dText = description.contents().not('hr');
+  $('#dlContent').append(dText);
+  $('#dlContent').prepend(
+    '<head><title>Liberty HCD | UX Toolkit</title>'+
+    '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">'+
+    '</head><body style="width:800px">');
+  $('#dlContent').append('</body>');
+  //Download the dlcontent area
   downloadInnerHtml(fileName, 'dlContent','text/html');
 });
