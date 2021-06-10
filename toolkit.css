@@ -32,6 +32,8 @@ body{
   
   #start{
     font-weight: bold;
+    color:white;
+    background: #172C47!important;
     top: 45%;
     right: 15%;
     box-shadow: 2px 3px 3px rgba(12, 39, 105, .2);
@@ -365,7 +367,7 @@ body{
   }
   
   #continue:hover, #start:hover{
-    background-color: #C8EFFF;
+    background: #C8EFFF;
   }
   
   #back{
